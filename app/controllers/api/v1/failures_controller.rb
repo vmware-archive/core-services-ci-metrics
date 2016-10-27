@@ -6,7 +6,7 @@ module Api
       end
 
       def create
-        permitted = params.require(:failure).permit(:pipeline, :job, :build_id, :build, :url)
+        permitted = params.require(:failure).permit(:pipeline, :job, :build_id, :build)
         failure = Failure.new(permitted)
         failure.save
 
@@ -15,7 +15,7 @@ module Api
 
       def update
         failure = Failure.find(params[:id])
-        failure.update(params.require(:failure).permit(:pipeline, :job, :build_id, :build, :url, :task, :description))
+        failure.update(params.require(:failure).permit(:pipeline, :job, :build_id, :build, :task, :description))
 
         respond_with :api, :v1, failure
       end

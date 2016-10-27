@@ -3,5 +3,4 @@ class Failure < ApplicationRecord
   validates :job, presence: true
   validates :build_id, presence: true
   validates :build, presence: true
-  validates :url, presence: true
 end
