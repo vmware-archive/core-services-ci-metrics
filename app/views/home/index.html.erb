@@ -4,6 +4,8 @@
     <%= form_for [:api, :v1, failure], format: :json  do |f| %>
       <%= f.text_field :pipeline, readonly: true %>
       <%= f.text_field :job, readonly: true %>
+      <%= f.text_field :build, readonly: true %>
+      <%= f.text_field :url, readonly: true %>
       <%= f.text_field :task %>
       <%= f.text_area :description %>
 
