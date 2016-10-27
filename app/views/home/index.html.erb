@@ -1,1 +1,14 @@
-<h1>Hello Friends</h1>
+<ol>
+<% @failures.each do |failure| %>
+  <li>
+    <%= form_for [:api, :v1, failure], format: :json  do |f| %>
+      <%= f.text_field :pipeline, readonly: true %>
+      <%= f.text_field :job, readonly: true %>
+      <%= f.text_field :task %>
+      <%= f.text_area :description %>
+
+      <%= f.submit %>
+    <% end %>
+  </li>
+<% end %>
+</ol>
