@@ -7,3 +7,4 @@ applications:
   - route: core-services-ci-metrics.cfapps.io
   stack: cflinuxfs2
   buildpack: ruby_buildpack
+  command: null
