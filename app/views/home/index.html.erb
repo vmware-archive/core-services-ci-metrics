@@ -6,6 +6,7 @@
       <%= f.text_field :job, readonly: true %>
       <%= f.text_field :build, readonly: true %>
       <%= f.text_field :task %>
+      <%= f.select :category, ['bad code', 'env no longer claimed', 'iaas failure', 'pipeline configuration', '¯\_(ツ)_/¯'], include_blank: true %>
       <%= f.text_area :description %>
 
       <%= f.submit %>
