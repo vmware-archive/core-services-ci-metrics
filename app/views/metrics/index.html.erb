@@ -1,0 +1,39 @@
+<style>
+  th { text-align: left }
+</style>
+
+<h1>In the last 7 days...</h1>
+
+<p>
+  Total <%= @count %> failures
+</p>
+
+<h3>Top Failed Jobs</h3>
+<table>
+  <tr>
+    <th>Pipeline</th>
+    <th>Job</th>
+    <th>Count</th>
+  </tr>
+  <% @top_jobs.each do |job| %>
+    <tr>
+      <td><%= job.pipeline %></td>
+      <td><%= job.job %></td>
+      <td><%= job.count %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>Failed Categories</h3>
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Count</th>
+  </tr>
+  <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.category %></td>
+        <td><%= category.count %></td>
+      </tr>
+  <% end %>
+</table>
