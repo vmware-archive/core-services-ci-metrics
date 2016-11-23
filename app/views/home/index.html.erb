@@ -10,23 +10,25 @@
 
 <table class="table table-striped">
   <tr>
-      <th>Pipeline</th>
-      <th>Job</th>
-      <th>Build</th>
-      <th>Task</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>Pipeline</th>
+    <th>Job</th>
+    <th>Build</th>
+    <th>Task</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>&nbsp;</th>
   </tr>
 
-  <% @failures.each do |failure| %>
+  <% @failures.each_with_index do |failure, index| %>
   <tr>
     <%= form_for [:api, :v1, failure], format: :json  do |f| %>
+      <td><%= index + 1 %></td>
       <td><%= f.text_field :pipeline, readonly: true %></td>
       <td><%= f.text_field :job, readonly: true %></td>
       <td><%= f.text_field :build, readonly: true %></td>
       <td><%= f.text_field :task %></td>
-      <td><%= f.select :category, Category.all.collect(&:name), include_blank: true %></td>
+      <td><%= f.select :category, Category.all.collect(&:name).sort, include_blank: true %></td>
       <td><%= f.text_area :description %></td>
       <td><%= f.submit %></td>
     <% end %>
