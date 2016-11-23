@@ -1,4 +1,8 @@
-<p style="text-align:center"><a href="/metrics">Want metrics?</a></p>
+<%= form_tag("/api/v1/categories", method: "post") do %>
+  <%= text_field_tag(:name, "Add New Category") %>
+  <%= submit_tag("Add") %>
+<% end %>
+<p style="text-align:center"><a href="/metrics">Want metrics?</a></br></p>
 
 <ol>
 <% @failures.each do |failure| %>
@@ -8,7 +12,7 @@
       <%= f.text_field :job, readonly: true %>
       <%= f.text_field :build, readonly: true %>
       <%= f.text_field :task %>
-      <%= f.select :category, ['bad code', 'env no longer claimed', 'iaas failure', 'pipeline configuration', '¯\_(ツ)_/¯'], include_blank: true %>
+      <%= f.select :category, Category.all.collect(&:name), include_blank: true %>
       <%= f.text_area :description %>
 
       <%= f.submit %>

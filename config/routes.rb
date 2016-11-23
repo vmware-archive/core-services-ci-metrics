@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :failures, only: [:create, :update, :index, :show]
       resources :metrics, only: [:index]
+      resources :categories, only: [:create]
     end
   end
 end
