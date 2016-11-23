@@ -1,8 +1,8 @@
 <div class="text-center" style="padding: 20px 0px">
   <a class="pull-left" href="/metrics">Want metrics?</a>
-  <%= form_tag('/api/v1/categories', method: 'post', :class => 'pull-right') do %>
+  <%= form_tag('/api/v1/categories', method: 'post', class: 'pull-right') do %>
     <%= text_field_tag(:name, 'Add New Category') %>
-    <%= submit_tag('Add') %>
+    <%= submit_tag('Add', class: 'btn btn-default') %>
   <% end %>
   <br />
 </div>
@@ -30,7 +30,7 @@
       <td><%= f.text_field :task %></td>
       <td><%= f.select :category, Category.all.collect(&:name).sort, include_blank: true %></td>
       <td><%= f.text_area :description %></td>
-      <td><%= f.submit %></td>
+      <td><%= f.submit class: 'btn btn-default' %></td>
     <% end %>
   </tr>
   <% end %>
