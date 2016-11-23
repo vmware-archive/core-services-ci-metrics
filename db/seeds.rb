@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+DEFAULT_CATEGORIES = ['bad code', 'env no longer claimed', 'iaas', 'pipeline configuration', '¯\_(ツ)_/¯']
+
+DEFAULT_CATEGORIES.each do |category|
+  Category.create(name: category)
+end
