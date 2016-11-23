@@ -1,24 +1,10 @@
-# README
+# core-services-ci-metrics
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple rails app for tracking ci failures. 
+https://core-services-ci-metrics.cfapps.io/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Local Development
+1. `bundle install`
+1. `rake db:create && rake db:migrate && rake db:seed`
+1. `bundle exec rails server`
+1. Navigate to http://localhost:3000/ in a browser to see the app running
