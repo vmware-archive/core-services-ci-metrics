@@ -1,22 +1,35 @@
-<%= form_tag("/api/v1/categories", method: "post") do %>
-  <%= text_field_tag(:name, "Add New Category") %>
-  <%= submit_tag("Add") %>
-<% end %>
-<p style="text-align:center"><a href="/metrics">Want metrics?</a></br></p>
+<div class="text-center" style="padding: 20px 0px">
+  <a class="pull-left" href="/metrics">Want metrics?</a>
+  <%= form_tag('/api/v1/categories', method: 'post', :class => 'pull-right') do %>
+    <%= text_field_tag(:name, 'Add New Category') %>
+    <%= submit_tag('Add') %>
+  <% end %>
+  <br />
+</div>
 
-<ol>
-<% @failures.each do |failure| %>
-  <li>
+
+<table class="table table-striped">
+  <tr>
+      <th>Pipeline</th>
+      <th>Job</th>
+      <th>Build</th>
+      <th>Task</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>&nbsp;</th>
+  </tr>
+
+  <% @failures.each do |failure| %>
+  <tr>
     <%= form_for [:api, :v1, failure], format: :json  do |f| %>
-      <%= f.text_field :pipeline, readonly: true %>
-      <%= f.text_field :job, readonly: true %>
-      <%= f.text_field :build, readonly: true %>
-      <%= f.text_field :task %>
-      <%= f.select :category, Category.all.collect(&:name), include_blank: true %>
-      <%= f.text_area :description %>
-
-      <%= f.submit %>
+      <td><%= f.text_field :pipeline, readonly: true %></td>
+      <td><%= f.text_field :job, readonly: true %></td>
+      <td><%= f.text_field :build, readonly: true %></td>
+      <td><%= f.text_field :task %></td>
+      <td><%= f.select :category, Category.all.collect(&:name), include_blank: true %></td>
+      <td><%= f.text_area :description %></td>
+      <td><%= f.submit %></td>
     <% end %>
-  </li>
-<% end %>
-</ol>
+  </tr>
+  <% end %>
+</table>
